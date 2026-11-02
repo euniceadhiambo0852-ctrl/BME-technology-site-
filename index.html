@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b13">
+  <meta name="description" content="BME Technologies — Beyond Machine Evolution. Building intelligent technology for business and industry.">
+  <title>BME Technologies | Beyond Machine Evolution</title>
+  <style>
+    :root {
+      --bg:#070b13; --panel:#0d1421; --panel2:#101b2b; --text:#f4f7fb;
+      --muted:#a4b0c2; --blue:#168bff; --cyan:#42d5ff; --line:rgba(176,201,230,.16);
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:radial-gradient(ellipse at 80% 0%,rgba(13,90,180,.16),transparent 35%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topline{height:3px;background:linear-gradient(90deg,#167cff,#42d5ff,#167cff)}
+    header{position:sticky;top:0;z-index:10;background:rgba(7,11,19,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.12em}
+    .brandmark{font-size:27px;line-height:1;font-weight:900;letter-spacing:-.1em;background:linear-gradient(120deg,#fff 15%,#8ea6c7 45%,#23a7ff 75%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 25px rgba(22,139,255,.16)}
+    .brand small{display:block;font-size:9px;color:#9eacc0;letter-spacing:.28em;margin-top:4px}
+    .links{display:flex;align-items:center;gap:28px;color:#bdc8d8;font-size:13px}
+    .links a:hover{color:white}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(66,181,255,.55);background:linear-gradient(135deg,#147ce5,#0754a9);color:white;padding:11px 18px;border-radius:7px;font-weight:700;font-size:13px;box-shadow:0 8px 28px rgba(0,105,220,.18);transition:.2s}
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,105,220,.3)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:7px;padding:8px 11px;font-size:20px}
+    .hero{padding:100px 0 88px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(36,153,255,.12);border-radius:50%;right:-170px;top:20px;box-shadow:0 0 0 50px rgba(36,153,255,.025),0 0 0 100px rgba(36,153,255,.02);pointer-events:none}
+    .eyebrow{color:#58baff;text-transform:uppercase;letter-spacing:.24em;font-size:11px;font-weight:800}
+    h1{font-size:clamp(44px,7vw,82px);line-height:1.02;letter-spacing:-.055em;margin:20px 0 22px;max-width:850px}
+    .gradient{background:linear-gradient(100deg,#fff 20%,#a8c6e8 55%,#32b7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:clamp(16px,2vw,19px);color:#b0bdcf;max-width:650px;margin:0 0 32px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn.secondary{background:transparent;border:1px solid var(--line);box-shadow:none;color:#d8e5f5}
+    .hero-note{margin-top:58px;display:flex;align-items:center;gap:13px;color:#8292a9;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+    .pulse{width:7px;height:7px;border-radius:50%;background:#36c3ff;box-shadow:0 0 15px #36c3ff}
+    section{padding:82px 0;border-top:1px solid var(--line)}
+    .section-head{max-width:690px;margin-bottom:36px}
+    .section-head h2{font-size:clamp(30px,4vw,47px);letter-spacing:-.04em;line-height:1.1;margin:12px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(145deg,rgba(17,29,47,.94),rgba(9,15,25,.96));border:1px solid var(--line);border-radius:13px;padding:25px;min-height:220px}
+    .icon{width:43px;height:43px;border:1px solid rgba(52,171,255,.35);border-radius:10px;display:grid;place-items:center;color:#50c1ff;font-size:20px;background:rgba(21,126,218,.1);margin-bottom:23px}
+    .card h3{margin:0 0 9px;font-size:19px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .statement{font-size:clamp(26px,3.8vw,43px);line-height:1.18;letter-spacing:-.04em;margin:0}
+    .copy{color:var(--muted);font-size:15px}
+    .principles{display:grid;gap:14px}
+    .principle{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+    .number{font-size:12px;color:#55baff;letter-spacing:.1em;padding-top:3px}
+    .principle strong{display:block;margin-bottom:3px}
+    .principle span:last-child{color:var(--muted);font-size:13px}
+    .product{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
+    .product-copy{padding:34px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(140deg,#101d30,#0b111c)}
+    .product-copy h3{font-size:32px;letter-spacing:-.04em;margin:10px 0}
+    .product-copy p{color:var(--muted)}
+    .tag{display:inline-block;border:1px solid rgba(62,180,255,.35);color:#72caff;border-radius:99px;padding:5px 10px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .mock{border:1px solid rgba(63,158,255,.24);border-radius:14px;background:radial-gradient(circle at 50% 35%,rgba(17,115,207,.2),transparent 55%),#080e18;padding:25px;display:flex;align-items:center;justify-content:center;min-height:300px}
+    .orb{width:190px;height:190px;border-radius:50%;border:1px solid rgba(75,184,255,.55);display:grid;place-items:center;box-shadow:0 0 60px rgba(0,131,255,.15),inset 0 0 35px rgba(0,131,255,.1);position:relative}
+    .orb:before,.orb:after{content:"";position:absolute;inset:17px;border:1px solid rgba(75,184,255,.22);border-radius:50%}
+    .orb:after{inset:-18px;border-color:rgba(75,184,255,.13);transform:rotateX(68deg)}
+    .orb b{font-size:30px;letter-spacing:-.08em;background:linear-gradient(120deg,#fff,#39baff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .contact{background:linear-gradient(120deg,rgba(12,78,145,.2),transparent 70%)}
+    .contact-panel{padding:38px;border:1px solid rgba(61,164,255,.25);border-radius:14px;background:rgba(11,19,31,.82);display:flex;justify-content:space-between;align-items:center;gap:25px}
+    .contact-panel h2{font-size:clamp(27px,4vw,42px);line-height:1.1;margin:0 0 10px}
+    .contact-panel p{margin:0;color:var(--muted)}
+    footer{padding:28px 0;color:#8290a4;font-size:12px}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .foot strong{color:#dbe8f7;letter-spacing:.1em}
+    @media(max-width:800px){.links{display:none;position:absolute;top:76px;left:0;right:0;background:#0a111d;padding:20px;width:100%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.links.open{display:flex}.menu{display:block}.nav-cta{display:none}.grid{grid-template-columns:1fr}.split,.product{grid-template-columns:1fr}.hero{padding:75px 0 65px}.contact-panel{align-items:flex-start;flex-direction:column}.foot{align-items:flex-start;flex-direction:column}}
+    @media(min-width:801px){.links{display:flex!important}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="BME Technologies home">
+        <span class="brandmark">3mE</span>
+        <span>BME<small>TECHNOLOGIES</small></span>
+      </a>
+      <nav class="links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#technology">Technology</a><a href="#product">First product</a><a href="#innovation">Innovation</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Get in touch</a>
+      <button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="wrap">
+        <div class="eyebrow">Kenya-born · Global ambition</div>
+        <h1>Beyond Machine<br><span class="gradient">Evolution.</span></h1>
+        <p class="lead">We are building toward a future where intelligent technology helps people, businesses and industries do more. BME Technologies is an early-stage venture focused on learning, invention and practical AI solutions.</p>
+        <div class="actions">
+          <a class="btn" href="#technology">Explore our direction <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="btn secondary" href="#about">Our mission</a>
+        </div>
+        <div class="hero-note"><span class="pulse"></span> Early-stage technology venture · Building from the ground up</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">01 / Who we are</div>
+          <p class="statement">Big ideas deserve to be built, tested and made useful.</p>
+        </div>
+        <div class="copy">
+          <p>BME stands for <strong>Beyond Machine Evolution</strong>. Our ambition is to create technology that addresses real problems and can grow from useful first products into a broader technology ecosystem.</p>
+          <p>We are starting in Kenya with curiosity, disciplined experimentation and a commitment to build responsibly. Our global ambition will be earned through products that work and people who trust them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">02 / Technology focus</div>
+          <h2>Start focused. Build for what comes next.</h2>
+          <p>Our long-term interests span intelligent software and advanced systems. Our first work will concentrate on a clear, achievable problem.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="icon">✳</div><h3>Artificial intelligence</h3><p>Practical AI tools that help people understand information, respond faster and make better decisions.</p></article>
+          <article class="card"><div class="icon">⌘</div><h3>Robotics & automation</h3><p>Exploring how intelligent systems can simplify repetitive tasks and support safer, more capable work.</p></article>
+          <article class="card"><div class="icon">◈</div><h3>Smart systems</h3><p>Connected software and digital tools designed to make everyday operations more organized and efficient.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="product">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">03 / First product direction</div>
+          <h2>Meet the idea behind BME ONE.</h2>
+          <p>A proposed first product concept. We will validate the problem with real businesses before committing to a full build.</p>
+        </div>
+        <div class="product">
+          <div class="product-copy">
+            <span class="tag">Concept · In development</span>
+            <h3>BME ONE</h3>
+            <p>An intelligent business assistant concept intended to help small businesses organize customer enquiries, orders and everyday information.</p>
+            <p><strong>First milestone:</strong> Interview business owners, identify one repeated problem and prototype a focused solution.</p>
+            <a class="btn" href="#contact">Discuss the concept</a>
+          </div>
+          <div class="mock" aria-label="Abstract BME ONE technology concept graphic">
+            <div class="orb"><b>3mE</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="innovation">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">04 / How we build</div>
+          <p class="statement">Innovation is a process, not a slogan.</p>
+          <p class="copy">We will learn from users, test assumptions, measure outcomes and improve each version. We will be clear about what is a concept, what is being tested and what is ready to use.</p>
+        </div>
+        <div class="principles">
+          <div class="principle"><span class="number">01</span><div><strong>Understand the problem</strong><span>Listen before building.</span></div></div>
+          <div class="principle"><span class="number">02</span><div><strong>Prototype quickly</strong><span>Test the smallest useful solution.</span></div></div>
+          <div class="principle"><span class="number">03</span><div><strong>Build responsibly</strong><span>Respect privacy, safety and user trust.</span></div></div>
+          <div class="principle"><span class="number">04</span><div><strong>Improve continuously</strong><span>Let evidence guide the next step.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div><div class="eyebrow">05 / Connect with BME</div><h2>Have a problem worth solving?</h2><p>We welcome conversations with potential users, collaborators and technology-minded builders.</p></div>
+          <a class="btn" href="https://wa.me/?text=Hello%20BME%20Technologies%2C%20I%27d%20like%20to%20connect." target="_blank" rel="noopener">Start a WhatsApp conversation ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div><strong>BME TECHNOLOGIES</strong><br><span>Beyond Machine Evolution</span></div>
+      <div>© <span id="year"></span> BME Technologies · An early-stage venture from Kenya</div>
+    </div>
+  </footer>
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>{
+      const open=navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',String(open));
+      menuBtn.textContent=open?'✕':'☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.textContent='☰';
+    }));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
